@@ -1,0 +1,8 @@
+{
+    "httpsCrt":"simp.crt",
+    "httpsKey":"simp.key",
+    "homeServe": "http:8001:/",
+    "filePath": "index.html",
+    "comment_https_key": "generate_key: openssl genrsa -out mikoGo.key 2048, generate_crt: openssl req -new -x509 -key mikoGo.key -out mikoGo.crt -days 365",
+    "comment_ports_set": "if you want to use 80, you can run 'sudo iptables -A PREROUTING -t nat -p tcp --dport 80 -j REDIRECT --to-port 8888' first"
+}

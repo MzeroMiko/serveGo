@@ -1,0 +1,5 @@
+authtoken: 123456
+tunnels:
+  ssh:
+    addr: 22
+    proto: tcp

@@ -1,0 +1,184 @@
+in this version, we aimed at all request imformation in the url, renew but pure php
+
+callAddr = "home.php?path=";
+currentAddr = href.slice(href.indexOf(callAddr) + callAddr.length);
+callURL = currentAddr + encodeURIComponent(path); 
+
+switch method:
+as monitor:
+    send callURL + "&method=monitor"
+    return  {
+        "CpuInfo":"{\"Name\":\"\",\"Core\":\"\",\"Loadavg\":\"\",\"Temperature\":\"\",\"Flags\":\"\",\"Idle\":\"\",\"Total\":\""}",
+        "MemInfo":"{\"MemTotal\":\"\",\"MemFree\":\"\",\"Cached\":\"\",\"Buffers\":\"\",\"SwapTotal\":\"\",\"SwapFree\":\"\",\"SwapCached\":\"\"}",
+        "DiskInfo":"{\"Usage\":\"\",\"Detail\":\"\"}","Process":"{\"General\":\"\",\"Detail\":\""}",
+        "Network":"[{\"Dev\":\"\",\"Ipv4\":\"\",\"Ipv6\":\"\",\"RxBytes\":\"\",\"TxBytes\":\"\"}]",
+        "Uptime":"",
+        "Distro":"",
+        "Host":"",
+        "Version":""
+        }
+
+as getDir:
+    send callURL + "&method=getDir"
+    return  {
+        "Err":"",
+        "FileList":"[{\"Name\":\"\",\"Time\":\"\",\"Size\":\"\"}]",
+        "FolderList":"[{\"Name\":\"\",\"Time\":\"\",\"Size\":\"\"}]",
+        }
+
+as getFile:
+    send callURL + "&method=getFile"
+    return file buffer / "404"
+
+as auth:
+    send callURL + "&method=auth&token=ab1234567890cdef"
+    return "authFail" / "20fb50e3578e05fdf8ed3f8a7d0356c1"
+
+as close:
+    send callURL + "&method=close&token=20fb50e3578e05fdf8ed3f8a7d0356c1"
+    return "authFail" / "" / "20fb50e3578e05fdf8ed3f8a7d0356c1"
+
+as mkdir: as remove: as rename: // path can be the oriPath or target(as mkdir)
+    send callURL + "&method=mkdir&token=20fb50e3578e05fdf8ed3f8a7d0356c1"
+    send callURL + "&method=remove&token=20fb50e3578e05fdf8ed3f8a7d0356c1"
+    send callURL + "&method=rename&token=20fb50e3578e05fdf8ed3f8a7d0356c1&newlink=" + encodeURIComponent(callURL2)
+    return "authFail" / "pass" / "fail" / "exist"
+
+as uploadCheck:
+    send callURL + "&method=check&token=50d34a16b5351cc4d000ce708ca49fec&.trash/&fileMd5=6752f80c1a3fc98126259fac4806a247&chunks=71"
+    return "authFail" / {"exist":["exist"],"finished":["0","1","2"]}
+
+as uploadMerge:
+    send callURL + "&method=finish&token=50d34a16b5351cc4d000ce708ca49fec&fileMd5=6752f80c1a3fc98126259fac4806a247&chunks=71"
+    return "authFail" / "pass" / "fail"
+
+as uploadChunk:
+    send callURL + "&method=chunk&token=50d34a16b5351cc4d000ce708ca49fec&fileMd5=6752f80c1a3fc98126259fac4806a247&current=0"
+    return "authFail" / "pass" / "fail"
+
+based on mikoGo(MikoGoPhpNode) final version
+
+changes:    
+    20200605 change iconType add showHtml; 
+    20200607 change menuViewer title; 
+    20200607 change menuViewer menuHtml show time; 
+    20200607 change mediaViewer video fullscreen way; 
+    20200607 change the lasting time of currentToken in adminAction / fileProc;
+    20200611 add monitor into fileIndex.js, add scrollbar, renew monitorFront.js;
+    20200611 change color when one is chosen
+    20200612 change admin page as full screen
+    20200612 change rename agreement 
+    20200613 change agreement of response of ALL: 
+        getDir: fileProc.readDirSync app
+        auth/mkdir/rename/remove: fileProc.checkToken fileProc.postMkdir fileProc.postRemove fileProc.postRename
+    20200614 change color (append progress div) to show finish in mkdir ...
+    20200626 add sessionTime into config.json thus change app
+    20200702 change monitor
+    20200703 change go strSplit
+
+    
+
+
+preChanges
+    20200615 newVersion of monitor getNet (now in monitor.js, try to finish it later);
+    20200615 try to remove process.detail in monitor, chenge it into net info
+    20201121 add redirections
+
+
+bugs :
+
+    #1 platform: 
+        ifconfig in amd64 / mips with different response
+        cpuinfo differ in amd64 / mips
+        no /etc/hostname /etc/issue found in mips
+        php (32bit) can not play video over 2G in mips
+        php (32bit) filesize can be negative, 2G file can not read  
+
+    #2 front: supportPDF is not work well
+
+
+bug fix:
+
+    #1  parentDirectory: /Data/a/../../a = /a -> not found; 
+        fix: try to remove /Data
+
+    #2 Cached can be mixed with SwapCached in monitor.php
+        fix: change strstr into strpos
+
+    #3 if a file can not be read, size is false, time is false
+        fix: check false
+
+    #4 php: php can have warnings -> try to disable it !!!
+        fix: add ini_set("display_errors", "Off"); in home.php
+
+    #5 fileProc parseRange bug: $end = $filesize; but should be $end = $filesize -1;
+
+    #6 php: should be explode("-", $rangeStr) but not explode($rangeStr, "-")
+
+    #7 bug fix about front askAuth / closeSession 
+
+    #8 go : "+ -> %20" in folders still not fixed;
+        fix: modify decodeURIComponent / encodeURIComponent in go 
+
+    #9 front: popupMessage: content can squeeze the space of info and close
+        fix: flex-shrink:0;
+
+    #10 go can not play video over 2G in mips cuz can not get range (as int)
+        fix: change atoi: from strconv.ParseInt(str, 0, 0); to strconv.ParseInt(str, 10, 64);
+
+    #11 front: monitorFront: if info.Network == null, this would be stoped
+        renew monitorFront add try catch
+
+    #12 monitor.go: exec shell cmd failed, but php can do that
+        fix: change exec.Command("/bin/bash", "-c", str) to  exec.Command("sh", "-c", str) in execShell
+    
+    #13 history popup has bugs
+        front: when use ./home.php, pdfjs can not work
+        fix: change callAddr running mode, try use window.href............
+
+    #14 go uses too much cpu
+        fix: in sendFile, add  "if _, err := Response.Write(buffer); err != nil {
+			// when in range mode, connection may be reset by peer
+			// fmt.Println(err.Error())
+			return ""
+		}"
+        notation: php is a cgi program, so if pipe breaks, it stops
+            nodejs use .pipe to transfer
+
+    #15 go node: callAddr can be shown in query, if using pdf.js
+        fix: check if callAddr in url.pathname rather than url; 
+        Request.URL.Path in Go  url.parse(Request.url).pathname in nodejs
+    
+    #16 go: remove can not be done, no .trash found
+        fix:  in postRemove in go, trashPath is mistaken into realPath 
+    
+    #17 go: can not read softlink as a dir
+        fix: change ioutil.ReadDir(= readdirnames + lstat) into os.Open -> dir.Readdirnames -> os.Stat 
+
+    #18 go: parseRange used strSplit, if rangeArr[0] / rangeArr[1]; but in history change to strSplit, if rangeArr[i].trim() == "", rangeArr[i] is not exist
+        fix: change strSplit into strSlice(strIndex())
+
+    #19 go: goroutine error when using tokenList by checkToken
+        fix: add sync.Mutex 
+
+    #20 all: uniqueStyle can not recognize @media{.a{}}
+        fix: slipt by @ first
+    
+    #21 js: fix uploadPieces when all chunks are uploaded
+    
+    #22 js: fix mediaPlayer as change playList would change oriPlayList, add playOrderRecover
+
+    #23 go: add "defer fp.Close()" in fileProc.go line 151
+
+    #24 all: mix all together in one file
+
+
+https://xueying258456.github.io/svg-ico/
+https://www.zhangxinxu.com/sp/svgo/
+
+run: 
+    # go build app.go fileProc.go monitor.go parts.go && mv ./app ./app_amd64
+    # GOOS=linux GOARCH=mipsle GOMIPS=softfloat CGO_ENABLED=0 go build app.go fileProc.go monitor.go parts.go && mv ./app ./app_mipsle
+    go build mikogo.go && mv ./mikogo ./app_amd64
+    GOOS=linux GOARCH=mipsle GOMIPS=softfloat CGO_ENABLED=0 go build mikogo.go && mv ./mikogo ./mikogo_mipsle
+

@@ -1,0 +1,33 @@
+Your account 'MzeroMiko' is limited to 1 simultaneous ngrok client session.
+Active ngrok client sessions in region 'us':
+  - ts_1wLpEwTilnj1nQsLFck4lkD3q9k (2400:dd01:103a:4007:fc8e:dd02:2cb6:82bd)
+
+ERR_NGROK_108
+
+Your account 'MzeroMiko' is limited to 1 simultaneous ngrok client session.
+Active ngrok client sessions in region 'us':
+  - ts_1wLpEwTilnj1nQsLFck4lkD3q9k (2400:dd01:103a:4007:fc8e:dd02:2cb6:82bd)
+
+ERR_NGROK_108
+
+The authtoken you specified does not look like a proper ngrok tunnel authtoken.
+Your authtoken: 123456
+Instructions to install your authtoken are on your ngrok dashboard:
+https://dashboard.ngrok.com/get-started/your-authtoken
+
+ERR_NGROK_105
+
+The authtoken you specified does not look like a proper ngrok tunnel authtoken.
+Your authtoken: 123456
+Instructions to install your authtoken are on your ngrok dashboard:
+https://dashboard.ngrok.com/get-started/your-authtoken
+
+ERR_NGROK_105
+
+The authtoken you specified does not look like a proper ngrok tunnel authtoken.
+Your authtoken: 123456
+Instructions to install your authtoken are on your ngrok dashboard:
+https://dashboard.ngrok.com/get-started/your-authtoken
+
+ERR_NGROK_105
+

@@ -1,0 +1,23 @@
+[: 1: Syntax error: Unterminated quoted string
+isPrimaryInstance
+
+** (light-locker:189547): ERROR **: 03:19:36.391: Environment variable XDG_SESSION_PATH not set. Is LightDM running?
+
+** (xiccd:189605): WARNING **: 03:19:36.674: EDID is empty
+
+** (xiccd:189605): CRITICAL **: 03:19:36.833: failed to create colord device: failed to obtain org.freedesktop.color-manager.create-device auth
+(0x7ffd9a1b44a0) Debug: New PolkitAgentListener  0x5574a6d47400
+(0x7ffd9a1b44a0) Debug: Adding new listener  PolkitQt1::Agent::Listener(0x7ffd9a1b44b0) for  0x5574a6d47400
+size of cached file QSize(1600, 900) , requiredSize: QSize(1600, 900)
+origin "/usr/share/lxqt/themes/frost/lxqt-origami-light.png"
+[Notice] Started
+(0x7fff7492c000) Debug: ()
+(0x7ffeac89da70) Debug: systemd: "CanHibernate" = "challenge"
+(0x7ffeac89da70) Debug: systemd: "CanSuspend" = "challenge"
+Aborting: Check that the nvidia-settings and nvidia-prime packages are installed.
+(0x7fff7492c000) Debug: WinIdChange 1a00007 handle QWidgetWindow(0x5573813d8280, name="LXQtPanel panel1Window") QScreen(0x557381158730, name="screen")
+(0x7ffe1b965c20) Debug: systemd: "CanReboot" = "challenge"
+(0x7ffe1b965c20) Debug: systemd: "CanPowerOff" = "challenge"
+Translator is not loaded "qlipper_en_US" "/usr/share/qlipper/translations"
+(0x7ffd9979e9c0) Debug: Error from inhibit: QDBusError("org.freedesktop.DBus.Error.AccessDenied", "Permission denied")
+(0x7ffd9979e9c0) Debug: Starting idlenesswatcher

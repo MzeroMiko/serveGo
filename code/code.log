@@ -1,0 +1,64 @@
+[2021-08-06T19:12:59.574Z] error Please specify at least one file or folder
+[2021-08-06T19:15:44.371Z] info  code-server 3.11.0 4e8cd09ef0412dfc7b148b7639a692e20e4fd6dd
+[2021-08-06T19:15:44.374Z] info  Using user-data-dir ~/.local/share/code-server
+[2021-08-06T19:15:44.417Z] info  Using config file ~/opts/serveGo/code/code.yml
+[2021-08-06T19:15:44.417Z] info  HTTP server listening on http://0.0.0.0:8002 
+[2021-08-06T19:15:44.418Z] info    - Authentication is enabled
+[2021-08-06T19:15:44.418Z] info      - Using password from ~/opts/serveGo/code/code.yml
+[2021-08-06T19:15:44.418Z] info    - Not serving HTTPS 
+[2021-08-06T19:15:59.956Z] info  code-server 3.11.0 4e8cd09ef0412dfc7b148b7639a692e20e4fd6dd
+[2021-08-06T19:15:59.959Z] info  Using user-data-dir ~/.local/share/code-server
+[2021-08-06T19:16:00.003Z] info  Using config file ~/opts/serveGo/code/code.yml
+[2021-08-06T19:16:00.003Z] info  HTTP server listening on http://0.0.0.0:8002 
+[2021-08-06T19:16:00.004Z] info    - Authentication is enabled
+[2021-08-06T19:16:00.004Z] info      - Using password from ~/opts/serveGo/code/code.yml
+[2021-08-06T19:16:00.004Z] info    - Not serving HTTPS 
+Failed login attempt {"remoteAddress":"10.211.1.84","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36 Edg/92.0.902.62","timestamp":1628277363}
+ WARN [File Watcher (chokidar)] Error: Circular symlink detected: "/home/mzero/media/home" points to "/home/mzero"
+  ERR [File Watcher (chokidar)] Inotify limit reached (ENOSPC)
+  ERR [File Watcher (chokidar)] Inotify limit reached (ENOSPC)
+ WARN Resolved variables received without matching request 41
+ WARN Resolved variables received without matching request 42
+ WARN Resolved variables received without matching request 43
+Error [ERR_STREAM_DESTROYED]: Cannot call write after a stream was destroyed
+    at afterWrite (internal/streams/writable.js:470:24)
+    at onwrite (internal/streams/writable.js:446:7)
+    at WriteWrap.onWriteComplete [as oncomplete] (internal/stream_base_commons.js:89:12) {
+  code: 'ERR_STREAM_DESTROYED'
+}
+ WARN Resolved variables received without matching request 46
+ WARN Resolved variables received without matching request 47
+[IPC Library: Pty Host]  INFO Persistent process "1": Replaying 58 chars and 1 size events
+ WARN Resolved variables received without matching request 48
+ WARN Resolved variables received without matching request 49
+  ERR [File Watcher (chokidar)] Inotify limit reached (ENOSPC)
+  ERR [File Watcher (chokidar)] Inotify limit reached (ENOSPC)
+ WARN Resolved variables received without matching request 50
+ WARN Resolved variables received without matching request 51
+ WARN Resolved variables received without matching request 52
+ WARN Resolved variables received without matching request 53
+ WARN Resolved variables received without matching request 54
+ WARN Resolved variables received without matching request 55
+[2021-08-06T19:19:37.691Z] info  code-server 3.11.0 4e8cd09ef0412dfc7b148b7639a692e20e4fd6dd
+[2021-08-06T19:19:37.704Z] info  Using user-data-dir ~/.local/share/code-server
+[2021-08-06T19:19:37.839Z] info  Using config file ~/opts/serveGo/code/code.yml
+[2021-08-06T19:19:37.840Z] info  HTTP server listening on http://0.0.0.0:8002 
+[2021-08-06T19:19:37.840Z] info    - Authentication is enabled
+[2021-08-06T19:19:37.840Z] info      - Using password from ~/opts/serveGo/code/code.yml
+[2021-08-06T19:19:37.840Z] info    - Not serving HTTPS 
+[2021-08-06T19:19:44.078Z] error vscode is not running Error: vscode is not running
+    at VscodeProvider.send (/home/mzero/opts/serveGo/code/code-server/out/node/vscode.js:121:19)
+    at VscodeProvider.sendWebsocket (/home/mzero/opts/serveGo/code/code-server/out/node/vscode.js:117:14)
+    at async /home/mzero/opts/serveGo/code/code-server/out/node/routes/vscode.js:203:5
+[2021-08-06T19:19:46.104Z] error vscode is not running Error: vscode is not running
+    at VscodeProvider.send (/home/mzero/opts/serveGo/code/code-server/out/node/vscode.js:121:19)
+    at VscodeProvider.sendWebsocket (/home/mzero/opts/serveGo/code/code-server/out/node/vscode.js:117:14)
+    at async /home/mzero/opts/serveGo/code/code-server/out/node/routes/vscode.js:203:5
+[2021-08-06T19:20:04.253Z] error vscode is not running Error: vscode is not running
+    at VscodeProvider.send (/home/mzero/opts/serveGo/code/code-server/out/node/vscode.js:121:19)
+    at VscodeProvider.sendWebsocket (/home/mzero/opts/serveGo/code/code-server/out/node/vscode.js:117:14)
+    at async /home/mzero/opts/serveGo/code/code-server/out/node/routes/vscode.js:203:5
+[2021-08-06T19:20:06.214Z] error vscode is not running Error: vscode is not running
+    at VscodeProvider.send (/home/mzero/opts/serveGo/code/code-server/out/node/vscode.js:121:19)
+    at VscodeProvider.sendWebsocket (/home/mzero/opts/serveGo/code/code-server/out/node/vscode.js:117:14)
+    at async /home/mzero/opts/serveGo/code/code-server/out/node/routes/vscode.js:203:5

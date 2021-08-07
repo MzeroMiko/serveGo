@@ -1,0 +1,30 @@
+
+2021-08-07 00:57:44.97544504 +0800 CST m=+0.035785662
+go httpServer ( pid : 171522 ) starts at port :8888 with config file "/home/mzero/opts/pkgs/mikogo/mikogo.json"
+
+2021-08-07 00:58:14.262164333 +0800 CST m=+0.002198383
+go httpServer ( pid : 171628 ) starts at port :8888 with config file "/home/mzero/opts/pkgs/mikogo/mikogo.json"
+
+2021-08-07 01:08:58.834473195 +0800 CST m=+0.001600157
+go httpServer ( pid : 173057 ) starts at port :8888 with config file "/home/mzero/opts/pkgs/mikogo/mikogo.json"
+
+2021-08-07 01:09:01.518072807 +0800 CST m=+0.001636081
+go httpServer ( pid : 173081 ) starts at port :8888 with config file "/home/mzero/opts/pkgs/mikogo/mikogo.json"
+
+2021-08-07 01:19:46.236417831 +0800 CST m=+0.001873752
+go httpServer ( pid : 173842 ) starts at port :8888 with config file "/home/mzero/opts/pkgs/mikogo/mikogo.json"
+
+2021-08-07 01:19:49.174152116 +0800 CST m=+0.002706860
+go httpServer ( pid : 173861 ) starts at port :8888 with config file "/home/mzero/opts/pkgs/mikogo/mikogo.json"
+
+2021-08-07 02:40:14.932843586 +0800 CST m=+0.006453387
+go httpServer ( pid : 181866 ) starts at port :8000 with config file "/home/mzero/opts/serveGo/mikogo/mikogo.json"
+
+2021-08-07 03:08:42.022205759 +0800 CST m=+0.008047519
+go httpServer ( pid : 186652 ) starts at port :8000 with config file "/home/mzero/opts/serveGo/mikogo/mikogo.json"
+
+2021-08-07 03:11:17.990181687 +0800 CST m=+0.001920376
+go httpServer ( pid : 187369 ) starts at port :8000 with config file "/home/mzero/opts/serveGo/mikogo/mikogo.json"
+
+2021-08-07 03:19:33.479808754 +0800 CST m=+0.001702068
+go httpServer ( pid : 189367 ) starts at port :8000 with config file "/home/mzero/opts/serveGo/mikogo/mikogo.json"

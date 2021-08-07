@@ -1,0 +1,13 @@
+{
+    "sessionTime": "10",
+    "httpsCrt":"mikogo.crt",
+    "httpsKey":"mikogo.key",
+    "dataPath": "/media/Share",
+    "rootPath": "public",
+    "homePage": "public/home.html",
+    "authKey": "123456",
+    "homeServe": "http:8000:/home",
+    "redirections": "http:8001:/aria2, http:8002:/code, http:8003:/novnc, http:8004:/trweb, https:9090:/cockpit,  http:8096:/jellyfin",
+    "comment_https_key": "generate_key: openssl genrsa -out mikoGo.key 2048, generate_crt: openssl req -new -x509 -key mikoGo.key -out mikoGo.crt -days 365",
+    "comment_ports_set": "if you want to use 80, you can run 'sudo iptables -A PREROUTING -t nat -p tcp --dport 80 -j REDIRECT --to-port 8888' first"
+}
